@@ -7,6 +7,7 @@ import pages.HomePage;
 import pages.SidePanel;
 import pages.bookStore.BookStorePage;
 import pages.bookStore.LoginPage;
+import pages.bookStore.ProfilePage;
 import tests.TestBase;
 
 public class AddBookTests extends TestBase {
@@ -25,10 +26,13 @@ public class AddBookTests extends TestBase {
     @Test
     public void addBookTest() {
         new BookStorePage(driver)
-                .clickTextInBook("Git Pocket Guide")
-                .clickOnButton("Add To Your Collection");
+                .clickTextInBook()
+                .AddToCollection("Add To Your Collection");
         new SidePanel(driver)
-                .selectProfile();
+               .selectProfile();
+       new ProfilePage(driver)
+              .clickDelete();
+
     }
 
 }

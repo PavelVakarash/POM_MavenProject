@@ -50,4 +50,18 @@ public abstract class BasePage {
         js.executeScript("window.scrollBy(" + x +"," + y + ")");
         element.click();
     }
+
+    public void pause(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void hideAd() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('adplus-anchor').style.display='none';");
+
+    }
 }

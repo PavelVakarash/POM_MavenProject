@@ -23,7 +23,23 @@ public class HomePage extends BasePage{
     WebElement alertFrameWindows;
 
     public SidePanel getAlertFrameWindows() {
-        clickWithJSExecutor(alertFrameWindows,0,400);
+        clickWithJSExecutor(alertFrameWindows,0,500);
+        return new SidePanel(driver);
+    }
+
+    @FindBy(xpath = "//h5[.='Widgets']")
+    WebElement widgets;
+
+    public SidePanel getWidgets() {
+        clickWithJSExecutor(widgets,0,400);
+        return new SidePanel(driver);
+    }
+
+    @FindBy(xpath = "//h5[.='Interactions']")
+    WebElement interactions;
+
+    public SidePanel getInteractions() {
+        clickWithJSExecutor(interactions,0,500);
         return new SidePanel(driver);
     }
 }

@@ -19,5 +19,14 @@ public class ProfilePage extends BasePage {
         return this;
     }
 
+    @FindBy(id="delete-record-undefined")
+    WebElement delete;
 
+    public ProfilePage clickDelete() {
+        clickWithJSExecutor(delete,0,400);
+        pause(2000);
+        driver.switchTo().alert().accept();
+        driver.switchTo().alert().accept();
+        return this;
+    }
 }

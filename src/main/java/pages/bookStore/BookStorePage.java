@@ -28,19 +28,23 @@ public class BookStorePage extends BasePage {
         return this;
     }
 
-    @FindBy(xpath = "//a[text()='Git Pocket Guide']")
+    @FindBy(id = "see-book-Git Pocket Guide")
     WebElement textGit;
 
-    public BookStorePage clickTextInBook(String text) {
+    public BookStorePage clickTextInBook() {
         click(textGit);
         return this;
     }
 
-    @FindBy(xpath = "//button[@id='addNewRecordButton']")
+    @FindBy(xpath = "//button[contains(text(),'Add To Your Collection')]")
+
     WebElement buttonAddToCollection;
 
-    public BookStorePage clickOnButton(String text) {
+    public BookStorePage AddToCollection(String text) {
         clickWithJSExecutor(buttonAddToCollection,0,500);
+        Assert.assertTrue(buttonAddToCollection.getText().contains(text));
+        pause(4000);
+        driver.switchTo().alert().accept();
         return this;
     }
 }
