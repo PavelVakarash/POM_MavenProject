@@ -15,12 +15,9 @@ public class AddBookTests extends TestBase {
     @BeforeMethod
     public void precondition() {
         new HomePage(driver).getBookStoreApplication();
-        new SidePanel(driver).selectLogin();
-        new LoginPage(driver)
-                .login(UserData.USER_NAME,UserData.USER_PASSWORD)
+        new BookStorePage(driver).clickLoginButton();
+        new LoginPage(driver).login(UserData.USER_NAME,UserData.USER_PASSWORD)
                 .assertAccount(UserData.USER_NAME);
-        new SidePanel(driver).selectBookStore();
-
     }
 
     @Test
@@ -29,9 +26,9 @@ public class AddBookTests extends TestBase {
                 .clickTextInBook()
                 .AddToCollection("Add To Your Collection");
         new SidePanel(driver)
-               .selectProfile();
-       new ProfilePage(driver)
-              .clickDelete();
+              .selectProfile();
+      new ProfilePage(driver)
+             .clickDelete("ok");
 
     }
 

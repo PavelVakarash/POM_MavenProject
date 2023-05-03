@@ -8,6 +8,7 @@ import pages.alertsFrameWindows.WindowsPage;
 import pages.bookStore.BookStorePage;
 import pages.bookStore.LoginPage;
 import pages.bookStore.ProfilePage;
+import pages.forms.PracticeFormPage;
 import pages.interactions.DroppablePage;
 import pages.widgets.SelectMenuPage;
 
@@ -70,5 +71,13 @@ public class SidePanel extends BasePage {
     public DroppablePage selectDroppable() {
         clickWithJSExecutor(droppable,0,600);
         return new DroppablePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Practice Form']")
+    WebElement practiceForm;
+
+    public PracticeFormPage selectPracticeForm() {
+        click(practiceForm);
+        return new PracticeFormPage(driver);
     }
 }

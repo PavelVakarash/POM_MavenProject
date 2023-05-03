@@ -22,11 +22,18 @@ public class ProfilePage extends BasePage {
     @FindBy(id="delete-record-undefined")
     WebElement delete;
 
-    public ProfilePage clickDelete() {
+    @FindBy(id="closeSmallModal-ok")
+    WebElement ok;
+
+    public ProfilePage clickDelete(String text) {
         clickWithJSExecutor(delete,0,400);
         pause(2000);
-        driver.switchTo().alert().accept();
-        driver.switchTo().alert().accept();
+        click(ok);
+        if (text!=null && text.equals("Ok")) {
+            driver.switchTo().alert().accept();
+        } else if (text!=null && text.equals("Cancel")) {
+            driver.switchTo().alert().dismiss();
+        }
         return this;
     }
 }

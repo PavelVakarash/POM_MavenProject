@@ -42,9 +42,17 @@ public class BookStorePage extends BasePage {
 
     public BookStorePage AddToCollection(String text) {
         clickWithJSExecutor(buttonAddToCollection,0,500);
-        Assert.assertTrue(buttonAddToCollection.getText().contains(text));
-        pause(4000);
         driver.switchTo().alert().accept();
-        return this;
+        pause(4000);
+        Assert.assertTrue(buttonAddToCollection.getText().contains(text));
+        return new BookStorePage(driver);
+    }
+
+    @FindBy(id = "login")
+    WebElement loginButton;
+
+    public LoginPage clickLoginButton() {
+        click(loginButton);
+        return new LoginPage(driver);
     }
 }
