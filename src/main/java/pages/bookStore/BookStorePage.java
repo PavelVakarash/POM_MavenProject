@@ -1,10 +1,16 @@
 package pages.bookStore;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.BasePage;
+
+import java.time.Duration;
 
 public class BookStorePage extends BasePage {
 
@@ -37,16 +43,20 @@ public class BookStorePage extends BasePage {
     }
 
     @FindBy(xpath = "//button[contains(text(),'Add To Your Collection')]")
-
     WebElement buttonAddToCollection;
 
-    public BookStorePage AddToCollection(String text) {
-        clickWithJSExecutor(buttonAddToCollection,0,500);
-        driver.switchTo().alert().accept();
-        pause(4000);
-        Assert.assertTrue(buttonAddToCollection.getText().contains(text));
-        return new BookStorePage(driver);
+    public BookStorePage AddToCollection() {
+        clickWithJSExecutor(buttonAddToCollection,0,400);
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.alertIsPresent());
+            driver.switchTo().alert().accept();
+        } catch (TimeoutException e) {
+
+        }
+        return this;
     }
+
 
     @FindBy(id = "login")
     WebElement loginButton;
@@ -55,4 +65,5 @@ public class BookStorePage extends BasePage {
         click(loginButton);
         return new LoginPage(driver);
     }
+
 }

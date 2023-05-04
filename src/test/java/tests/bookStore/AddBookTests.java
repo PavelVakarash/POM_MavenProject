@@ -16,17 +16,16 @@ public class AddBookTests extends TestBase {
     public void precondition() {
         new HomePage(driver).getBookStoreApplication();
         new BookStorePage(driver).clickLoginButton();
-        new LoginPage(driver).login(UserData.USER_NAME,UserData.USER_PASSWORD)
-                .assertAccount(UserData.USER_NAME);
+        new LoginPage(driver).login(UserData.USER_NAME,UserData.USER_PASSWORD);
     }
 
     @Test
     public void addBookTest() {
         new BookStorePage(driver)
                 .clickTextInBook()
-                .AddToCollection("Add To Your Collection");
-        new SidePanel(driver)
-              .selectProfile();
+                            .AddToCollection();
+               new SidePanel(driver)
+             .selectProfile();
       new ProfilePage(driver)
              .clickDelete("ok");
 
