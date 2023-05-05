@@ -8,6 +8,8 @@ import pages.alertsFrameWindows.WindowsPage;
 import pages.bookStore.BookStorePage;
 import pages.bookStore.LoginPage;
 import pages.bookStore.ProfilePage;
+import pages.elements.BrokenLinksImagesPage;
+import pages.elements.LinksPage;
 import pages.forms.PracticeFormPage;
 import pages.interactions.DroppablePage;
 import pages.widgets.SelectMenuPage;
@@ -79,5 +81,29 @@ public class SidePanel extends BasePage {
     public PracticeFormPage selectPracticeForm() {
         click(practiceForm);
         return new PracticeFormPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Text Box']")
+    WebElement textBox;
+
+    public JSExecutor selectTextBox() {
+        click(textBox);
+        return new JSExecutor(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Links']")
+    WebElement links;
+
+    public LinksPage selectLinks() {
+        clickWithJSExecutor(links,0,400);
+        return new LinksPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Broken Links - Images']")
+    WebElement brokenLinksImages;
+
+    public BrokenLinksImagesPage selectBrokenLinks() {
+        clickWithJSExecutor(brokenLinksImages,0,400);
+        return new BrokenLinksImagesPage(driver);
     }
 }

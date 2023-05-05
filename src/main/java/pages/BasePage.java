@@ -63,5 +63,11 @@ public abstract class BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.getElementById('adplus-anchor').style.display='none';");
 
+    } public void hideFooter() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector('footer').style.display='none';");
+
     }
+
+
 }

@@ -1,6 +1,8 @@
 package tests.bookStore;
 
+import data.BookData;
 import data.UserData;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -30,6 +32,21 @@ public class AddBookTests extends TestBase {
              .clickDelete("ok");
 
     }
+
+//    @Test
+//    public void addBookToCollectionPositiveTest() {
+//        new BookStorePage(driver).typeInSearchField(BookData.BOOK_NAME)
+//                .clickByFirstBook()
+//                .addToYourCollection();
+//        new SidePanel(driver).selectProfile();
+//        new BookStorePage(driver).assertNameOfBook("Git Pocket Guide");
+//
+//    }
+//
+//    @AfterMethod
+//    public void postConditions() {
+//        new ProfilePage(driver).clickOnTrashToDeleteBook();
+//    }
 
 }
 

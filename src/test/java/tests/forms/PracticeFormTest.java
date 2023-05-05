@@ -18,15 +18,18 @@ public class PracticeFormTest extends TestBase {
 
     @Test
     public void enterPracticeForm() {
-        new PracticeFormPage(driver).hideAd();
+        new PracticeFormPage(driver).hideIframes();
         new PracticeFormPage(driver)
                 .enterPersonalData(StudentData.FIRST_NAME,StudentData.LAST_NAME,
                 StudentData.EMAIL,StudentData.PHONE)
                .selectGender(StudentData.GENDER).typeOfDate(StudentData.DATE)
 //                //.chooseDate("May","2000","13")
-                .addSubject(StudentData.SUBJECTS);
- //               .chooseHobby(StudentData.HOBBIES);
-//                .uploadFile(StudentData.PHOTO_PATH).enterAddress(StudentData.ADDRESS)
-//                .inputState(StudentData.STATE).inputCity(StudentData.CITY);
+                .addSubject(StudentData.SUBJECTS)
+                .chooseHobby(StudentData.HOBBIES)
+                .uploadFile(StudentData.PHOTO_PATH)
+                .enterAddress(StudentData.ADDRESS)
+                .inputState(StudentData.STATE)
+                .inputCity(StudentData.CITY)
+                .submitForm();
     }
 }
