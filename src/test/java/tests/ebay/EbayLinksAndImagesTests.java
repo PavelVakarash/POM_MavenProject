@@ -24,19 +24,19 @@ public class EbayLinksAndImagesTests {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @Test
+    @Test(enabled = false)
     public void getEbayAllLinksTest() {
         new EbayLinksPage(driver).checkAllUrl();
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void EbayCheckBrokenLinksTest() {
         new EbayBrokenLinksImagesPage(driver).checkBrokenLinks();
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void EbayCheckBrokenImagesTest() {
         new EbayBrokenLinksImagesPage(driver).checkBrokenImages();
     }

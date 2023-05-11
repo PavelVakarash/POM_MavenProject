@@ -1,0 +1,12 @@
+tests\alertFrameWindows\AlertTests.class
+tests\interactions\DragDropTests.class
+tests\ebay\EbayLinksAndImagesTests.class
+tests\forms\PracticeFormTest.class
+tests\bookStore\LoginPageTests.class
+tests\bookStore\SearchBookTests.class
+tests\alertFrameWindows\WindowsTests.class
+tests\widgets\SelectMenuTests.class
+tests\bookStore\AddBookTests.class
+tests\elements\LinksAndImagesTests.class
+tests\JSExecutorTest.class
+tests\TestBase.class
